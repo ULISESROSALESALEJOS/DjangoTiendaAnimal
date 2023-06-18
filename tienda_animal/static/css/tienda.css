@@ -1,0 +1,43 @@
+.contenedor_productos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin-top: 3%;
+
+
+}
+
+.contenedor_productos .producto{
+    width: 1fr;
+    height: 500px;
+    text-align: center;
+    
+}
+
+.contenedor_productos .producto .btn_agregar{
+    background-color: green;
+    width: 70%;
+    height: 10%;
+    font-weight: bold;
+    border-radius: 10%;
+    color: rgb(5, 3, 3);
+}
+.contenedor_productos .producto .btn_agregar:hover{
+    background-color: rgb(71, 187, 71);
+
+
+}
+
+.contenedor_productos img{
+    border-radius: 10%;
+    height: 50%;
+}
+
+.filtro_producto li{
+    display: flex;
+    justify-content: end;
+    margin: 2% 5%;
+    list-style: none;
+
+}

@@ -1,0 +1,27 @@
+#formulario1 {
+    padding: 5%;
+
+}
+
+.form-group {
+    padding: 2%;
+}
+
+#formulario1 .card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#formulario1 .card-header {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#formulario1 .form-control {
+    border-radius: 5px;
+}
+
+#formulario1 button[type="submit"] {
+    margin-top: 10px;
+}
