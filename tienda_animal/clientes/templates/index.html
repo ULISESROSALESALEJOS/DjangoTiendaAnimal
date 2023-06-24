@@ -16,16 +16,20 @@
     <title>PetsLife</title>
 
 </head>
-    {% include "superior/banner.html"%}
-    <script src="{% static 'js/cargasHTML.js' %}">
-        <button onclick="saludar()" class="nav-link"><a>Login</a></button>
-    </script>
-    
-{% comment %} 
-<div id="contenedor_inicio">
+<style>
+    body {
+        font-family: 'Roboto Condensed', sans-serif;
+        background-color: #f5f1ee;
+        color: black;
+    }
+</style>
+{% include "superior/banner.html"%}   
+
+<div id="contenedor_inicio">    
+    <div>
+    </div>
     <div id="carrusel1" class="carousel slide" data-bs-ride="carousel">
         <div class="container-fluid">
-    
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <h6>&#128021;&#128008;Estamos atendiendo en nuestro nueva Tienda, VISITANOS.&#128008;&#128021;</h6>
@@ -62,13 +66,13 @@
     
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/banner2.png" alt="Banner 1" class="d-block w-100">
+                    <img src="static/img/banner1.png" alt="Banner 1" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/banner3.png" alt="Banner 2" class="d-block w-100">
+                    <img src="static/img/banner2.png" alt="Banner 2" class="d-block w-100">
                 </div>
-                <div class="carousel-item">
-                    <img src="img/banner4.png" alt="Banner 3" class="d-block w-100">
+                <div class="carousel-item"> 
+                    <img src="static/img/banner3.png" alt="Banner 3" class="d-block w-100">
                 </div>
             </div>
     
@@ -83,18 +87,18 @@
     <div id="container-1" class="container-fluid mt-4">
         <div class="row">
             <div class=" col-sm-3 ">
-                <img src="img/perro1.png" alt="foto-1">
+                <img src="static/img/perro1.png" alt="foto-1">
             </div>
             <div class="col-sm-3 ">
-                <img src="img/gato1.png"
+                <img src="static/img/gato1.png"
                     alt="foto-2">
             </div>
             <div class="col-sm-3 ">
-                <img src="img/otrascosas.png"
+                <img src="static/img/otrascosas.png"
                     alt="foto-3">
             </div>
             <div class="col-sm-3 ">
-                <img src="img/accesorios.png"
+                <img src="static/img/accesorios.png"
                     alt="foto-3">
             </div>
         </div>
@@ -104,16 +108,16 @@
         <h2>Productos Destacados</h2>
         <div class="row">
             <div class="col-sm-3">
-                <img src="img/producto-4.png" alt="producto-4" class="d-block w-100">
+                <img src="static/img/producto-4.png" alt="producto-4" class="d-block w-100">
             </div>
             <div class="col-sm-3 ">
-                <img src="img/producto-1.png" alt="producto-1" class="d-block w-100">
+                <img src="static/img/producto-1.png" alt="producto-1" class="d-block w-100">
             </div>
             <div class="col-sm-3 ">
-                <img src="img/producto-2.png" alt="producto-2" class="d-block w-100">
+                <img src="static/img/producto-2.png" alt="producto-2" class="d-block w-100">
             </div>
             <div class="col-sm-3 ">
-                <img src="img/producto-3.png" alt="producto-3" class="d-block w-100">
+                <img src="static/img/producto-3.png" alt="producto-3" class="d-block w-100">
             </div>
         </div>
     </div>
@@ -121,14 +125,14 @@
     <div id="container-4" class="container-fluid ">
         <div class="row">
             <div class="col-sm-6">
-                <img src="img/banner-2-1.png" alt="banner1 " class="d-block w-100">
-                <img src="img/banner-2-2.png" alt="banner2" class="d-block w-100">
-                <img src="img/banner-2-3.png" alt="banner3" class="d-block w-100">
+                <img src="static/img/banner-2-1.png" alt="banner1 " class="d-block w-100">
+                <img src="static/img/banner-2-2.png" alt="banner2" class="d-block w-100">
+                <img src="static/img/banner-2-3.png" alt="banner3" class="d-block w-100">
             </div>
             <div class="col-sm-6">
-                <img src="img/banner-2-4.png" alt="banner4" class="d-block w-100">
-                <img src="img/banner-2-5.png" alt="banner5" class="d-block w-100">
-                <img src="img/banner-2-6.png" alt="banner6" class="d-block w-100">
+                <img src="static/img/banner-2-4.png" alt="banner4" class="d-block w-100">
+                <img src="static/img/banner-2-5.png" alt="banner5" class="d-block w-100">
+                <img src="static/img/banner-2-6.png" alt="banner6" class="d-block w-100">
             </div>
         </div>
     </div>
@@ -146,17 +150,17 @@
                 <button type="button" class="btn btn-info">Ver Marcas</button>
             </div>
             <div class="col-sm-3">
-                <img class="border border-3" src="img/acana.png" alt="acana">
-                <img class="border border-3" src="img/granplus1.png" alt="granplus">
-                <img class="border border-3" src="img/biljac.png" alt="biljac">
-                <img class="border border-3" src="img/royalcanin.png" alt="royalcanin">
-                <img class="border border-3" src="img/nutragold.png" alt="nutragold">
-                <img class="border border-3" src="img/biofresh.png" alt="biofresh">
-                <img class="border border-3" src="img/vetlife.jpg" alt="vetlife">
-                <img class="border border-3" src="img/logo-hill.svg" alt="hill's">
+                <img class="border border-3" src="static/img/acana.png" alt="acana">
+                <img class="border border-3" src="static/img/granplus1.png" alt="granplus">
+                <img class="border border-3" src="static/img/biljac.png" alt="biljac">
+                <img class="border border-3" src="static/img/royalcanin.png" alt="royalcanin">
+                <img class="border border-3" src="static/img/nutragold.png" alt="nutragold">
+                <img class="border border-3" src="static/img/biofresh.png" alt="biofresh">
+                <img class="border border-3" src="static/img/vetlife.jpg" alt="vetlife">
+                <img class="border border-3" src="static/img/logo-hill.svg" alt="hill's">
             </div>
             <div class="col-sm-4">
-                <img src="img/perrito-para-banner.svg" alt="perrito" width="450px" height="300px" class="d-block w-100">
+                <img src="static/img/perrito-para-banner.svg" alt="perrito" width="450px" height="300px" class="d-block w-100">
             </div>
         </div>
     </div>
@@ -164,7 +168,7 @@
     <div id="contenedor-2" class="container-fluid">
         <div class="row">
             <div class="col-sm-3 ">
-                <img src="img/grain-free.svg" alt="libre gluten">
+                <img src="static/img/grain-free.svg" alt="libre gluten">
                 <h3>LIBRE GLUTEN</h3>
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary">PERRO</button>
@@ -172,7 +176,7 @@
                 </div>
             </div>
             <div class="col-sm-3 ">
-                <img src="img/premium.svg" alt="premium">
+                <img src="static/img/premium.svg" alt="premium">
                 <h3>PREMIUM</h3>
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary">PERRO</button>
@@ -180,7 +184,7 @@
                 </div>
             </div>
             <div class="col-sm-3 ">
-                <img src="img/high-premium.svg" alt="high premium">
+                <img src="static/img/high-premium.svg" alt="high premium">
                 <h3>HIGH PREMIUM</h3>
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary">PERRO</button>
@@ -188,7 +192,7 @@
                 </div>
             </div>
             <div class="col-sm-3 ">
-                <img src="img/super-premium.svg" alt="super premium">
+                <img src="static/img/super-premium.svg" alt="super premium">
                 <h3>SUPER PREMIUM</h3>
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary">PERRO</button>
@@ -197,25 +201,20 @@
             </div>
         </div>
     </div>
-    
-</div>{% endcomment %}
-
-<div id="contenido">
-
-
 </div>
 
-{% comment %} <footer class=" footer">
-    <!-- Grid container -->
+<div id="contenido">
+    
+</div>
+
+<footer class=" footer">
     <div class="container p-4">
-        <!--Grid row-->
         <div class="row my-4">
-            <!--Grid column-->
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0 w3-justify ">
 
                 <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto"
                     style="width: 150px; height: 150px;">
-                    <img src="img/PetsLife1.png" height="150" alt="logo"
+                    <img src="static/img/PetsLife1.png" height="150" alt="logo"
                         loading="lazy"/>
                 </div>
 
@@ -230,9 +229,7 @@
                     <i class="fa fa-linkedin w3-hover-opacity w3-xlarge"></i>
                 </div>
             </div>
-            <!--Grid column-->
 
-            <!--Grid column-->
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase mb-4">ANIMALES</h5>
 
@@ -245,9 +242,7 @@
                     </li>
                 </ul>
             </div>
-            <!--Grid column-->
 
-            <!--Grid column-->
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase mb-4">NOSOTROS</h5>
 
@@ -272,9 +267,7 @@
                     </li>
                 </ul>
             </div>
-            <!--Grid column-->
 
-            <!--Grid column-->
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0 w3-justify s4">
                 <h5 class="text-uppercase mb-4">CONTACTOS</h5>
 
@@ -290,19 +283,14 @@
                     </li>
                 </ul>
             </div>
-            <!--Grid column-->
         </div>
-        <!--Grid row-->
     </div>
-    <!-- Grid container --> 
 
-    <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
         © 2023 Copyright:
         <a class="text-white" href="#">PetsLife.com</a>
     </div>
-    <!-- Copyright -->
-</footer> {% endcomment %}
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"

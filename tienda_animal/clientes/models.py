@@ -21,3 +21,6 @@ class Cliente(models.Model):
 
     def __str__(self):
         return str(self.nombre)+" "+str(self.apellido_paterno)
+    
+    class Meta:
+        ordering = ['rut']
