@@ -8,10 +8,13 @@
 <body>
     <h1>Agregar Genero</h1>
     <br>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ clientes.as_p }}
-        <input type="submit" value="Agregar">
+   
+<form class="form" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+
+	<button type="submit" id="submit">Registrarse</button>
+</form>
     </form>
 </body>
 </html>

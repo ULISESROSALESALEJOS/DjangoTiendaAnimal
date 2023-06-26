@@ -24,3 +24,5 @@ class Cliente(models.Model):
     
     class Meta:
         ordering = ['rut']
+
+    

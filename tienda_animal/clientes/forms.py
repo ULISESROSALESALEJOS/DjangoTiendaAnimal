@@ -1,13 +1,14 @@
 from django import forms
-from .models import Genero,Cliente
-from django.forms import ModelForm,TextInput
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
-class ClienteForm(ModelForm):
-    class Meta:
-        model = Cliente
-        fields = ['rut','nombre','apellido_paterno']
-        
-class GeneroForm(ModelForm):
-    class Meta:
-        model = Genero
-        fields = ['genero']
+
+class UserRegisterForm(UserCreationForm):
+	email = forms.EmailField()
+	password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
+	password2 = forms.CharField(label='Confirma Contraseña', widget=forms.PasswordInput)
+
+	class Meta:
+		model = User
+		fields = ['username', 'email', 'password1', 'password2']
+		help_texts = {k:"" for k in fields }
