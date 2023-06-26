@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegisterForm
-from django.template import RequestContext
-from django.http import HttpResponse, HttpResponseRedirect
-from .models import *
+
 
 from django.shortcuts import render, redirect
 from .models import *
@@ -33,6 +31,7 @@ def donacionesHTML(request):
 def nosotrosHTML(request):
     return render(request,'nosotros.html')
 
+
 def registroHTML(request):
 	if request.method == 'POST':
 		form = UserRegisterForm(request.POST)
@@ -51,3 +50,4 @@ def registroHTML(request):
 #     cliente = ClienteForm()
 #     context = {"clientes":cliente}
 #     return render(request,'clientes/registro.html', context)
+
