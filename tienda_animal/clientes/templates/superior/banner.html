@@ -44,7 +44,8 @@
                         <button onclick="cargarHTML('login')" class="nav-link"><a>Login</a></button>
                     </li>
                     <li class="nav-item">
-                        <button onclick="cargarHTML('registro')" class="nav-link"><a>Registrarme</a></button>
+                        {% comment %} <button onclick="cargarHTML('registro')" class="nav-link"> {% endcomment %}
+                            <a href="{% url 'registro' %}">Registrarme</a></button>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="#">Ayuda</a>

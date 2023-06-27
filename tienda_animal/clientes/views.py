@@ -1,16 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegisterForm
-
-
-from django.shortcuts import render, redirect
-from .models import *
+from .forms import UserRegisterForm,ClienteAdd
+from .models import Cliente,Genero
 from .forms import UserRegisterForm
 from django.contrib import messages
 from django.contrib.auth.models import User
-
-
-
-
 from django.contrib import messages
 
 
@@ -33,18 +26,17 @@ def nosotrosHTML(request):
 
 
 def registroHTML(request):
-	if request.method == 'POST':
-		form = UserRegisterForm(request.POST)
-		if form.is_valid():
-			form.save()
-			username = form.cleaned_data['username']
-			messages.success(request, f'Usuario {username} creado')
-			return redirect('indexHtml')
-	else:
-		form = UserRegisterForm()
+		if request.method == 'POST':
+			form = ClienteAdd(request.POST)
+			if form.is_valid():
+				form.save()
+				return redirect('index')
+		else:
+			form = ClienteAdd()
+		
+		context = { 'form' : form}
 
-	context = { 'form' : form }
-	return render(request, 'registro.html', context)
+		return render(request, 'registro.html', context)
 
 # def addCliente(request):
 #     cliente = ClienteForm()
