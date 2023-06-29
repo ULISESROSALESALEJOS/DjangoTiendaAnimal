@@ -6,7 +6,8 @@ function cargarHTML(pagina){
     elemento.innerHTML = "";
 
     var rutaHTML = `${pagina}`
-    console.log(rutaHTML)
+    console.log(rutaHTML);
+    console.log("Hola");
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {

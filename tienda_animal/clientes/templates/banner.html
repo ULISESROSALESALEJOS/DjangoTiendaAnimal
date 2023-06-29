@@ -16,13 +16,13 @@
     <title>PetsLife</title>
 
 </head>
-<style>
+{% comment %} <style>
     body {
         font-family: 'Roboto Condensed', sans-serif;
         background-color: #f5f1ee;
         color: black;
     }
-</style>
+</style> {% endcomment %}
 <body>
 <header>
     <div id="primera-barra" class="container-fluid ">
@@ -44,7 +44,7 @@
                         <button onclick="cargarHTML('login')" class="nav-link"><a>Login</a></button>
                     </li>
                     <li class="nav-item">
-                        <button onclick="cargarHTML('registro')" class="nav-link"><a>Registrarme</a></button>
+                        <a href="{% url 'registro' %}" class="nav-link">Registrarme</a></button>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="#">Ayuda</a>
@@ -57,7 +57,7 @@
         <div class="container-fluid">
             <button onclick="cargarHTML('')" class="nav-link" >
                 <a>
-                    <img src="static/img/petslife-logo.svg" alt="pagina Logo1">
+                    <img src="{% static 'img/petslife-logo.svg' %}" alt="pagina Logo1">
                 </a>
             </button>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -105,8 +105,10 @@
             </form>
         </div>
     </div>
-
 </header>
+<div id="contenido">
+
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
         crossorigin="anonymous"></script>
