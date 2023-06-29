@@ -31,7 +31,18 @@
             <div class="col-sm-4">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Login</a></button>
+                        {% comment %} <button onclick="cargarHTML('login')" class="nav-link"> {% endcomment %}
+                        <a href="#">
+                            {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <img src="{% static 'img/usuario.jpg' %}" alt="usuario" style="height: 20px; margin-top:10px;"
+                                        class="rounded-pill">
+                                </li>
+                                <a class="nav-link" href="" style="height: 20px; padding-left:0;">{{ user.username }}</a>
+                            {% else %}
+                                <a href="{% url 'login' %}">login</a>
+                            {% endif %}
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a href="{% url 'registro' %}" class="nav-link">Registrarme</a></button>
@@ -73,19 +84,10 @@
                         <button onclick="cargarHTML('contacto')" class="nav-link"><a>Contacto</a></button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'donaciones' %}">Donaciones</a></button>
+                        <button onclick="cargarHTML('donaciones')" class="nav-link"><a>Donaciones</a></button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a></button>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <img src="{% static 'img/usuario.jpg' %}" alt="usuario" style="height: 20px; width: 20px;  "
-                                class="rounded-pill">
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Francisco Eljuri</a>
+                        <button onclick="cargarHTML('nosotros')" class="nav-link"><a>Nosotros</a></button>
                     </li>
                 </ul>
             </div>
@@ -97,16 +99,103 @@
     </div>
 </header>
 <div id="contenedor_inicio">  
-    <h1>Registrarse</h1>
     <br>
     <form action="" method="POST">
         {% csrf_token %}
+        <h2>Datos Usuario</h2>
+        {{formUser.as_p}}
+        <h2>Datos Personales</h2>
         {{form.as_p}}
-        <input type="submit" value="Agregar">
+        <input type="submit" value="Guardar">
     </form>
 </div>
 <div id="contenido">
 </div>
+
+<footer class=" footer">
+    <div class="container p-4">
+        <div class="row my-4">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 w3-justify ">
+
+                <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto"
+                    style="width: 150px; height: 150px;">
+                    <img src="static/img/PetsLife1.png" height="150" alt="logo"
+                        loading="lazy"/>
+                </div>
+
+                <p class="text-center">Nuestras Redes Sociales</p>
+                <br>
+                <div class=" shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-autocenter-text">
+                    <i class="fa fa-facebook-official w3-hover-opacity w3-xlarge"></i>
+                    <i class="fa fa-instagram w3-hover-opacity w3-xlarge"></i>
+                    <i class="fa fa-snapchat w3-hover-opacity w3-xlarge"></i>
+                    <i class="fa fa-pinterest-p w3-hover-opacity w3-xlarge"></i>
+                    <i class="fa fa-twitter w3-hover-opacity w3-xlarge"></i>
+                    <i class="fa fa-linkedin w3-hover-opacity w3-xlarge"></i>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4">ANIMALES</h5>
+
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="#" class="text-white"><i class="fas fa-paw pe-3"></i>Perros</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="text-white"><i class="fas fa-paw pe-3"></i>Gatos</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4">NOSOTROS</h5>
+
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="#" class="text-white"><i class="fas fa-paw pe-3"></i>Informacion General</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="text-white"><i class="fas fa-paw pe-3"></i>Sobre Nosotros</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="text-white"><i class="fas fa-paw pe-3"></i>Datos</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="text-white"><i class="fas fa-paw pe-3"></i>Trabajos</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="text-white"><i class="fas fa-paw pe-3"></i>Tendencia</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="text-white"><i class="fas fa-paw pe-3"></i>Contacto</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 w3-justify s4">
+                <h5 class="text-uppercase mb-4">CONTACTOS</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p><i class="fa fa-fw fa-map-marker fa-lg"></i>San Miguel, Novena, Chile</p>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-fw fa-phone fa-lg"></i>+ 56 9 4567 6783</p>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-fw fa-envelope fa-lg"></i>PetsLife@petslife.com</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2023 Copyright:
+        <a class="text-white" href="#">PetsLife.com</a>
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
 integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
