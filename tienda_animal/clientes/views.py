@@ -24,7 +24,6 @@ def donacionesHTML(request):
 def nosotrosHTML(request):
     return render(request,'nosotros.html')
 
-
 def registroHTML(request):
 		if request.method == 'POST':
 			form = ClienteAdd(request.POST)
@@ -35,7 +34,6 @@ def registroHTML(request):
 			form = ClienteAdd()
 		
 		context = { 'form' : form}
-
 		return render(request, 'registro.html', context)
 
 # def addCliente(request):
