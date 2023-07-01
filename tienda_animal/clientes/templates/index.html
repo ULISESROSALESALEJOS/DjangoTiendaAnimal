@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mensajeRegistro.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'js/cargasHTML.js' %}"></script>
     <script src="{% static 'js/regiones.js' %}"></script>
@@ -23,7 +24,14 @@
         color: black;
     }
 </style>
-{% include "banner.html"%}   
+{% include "banner.html"%} 
+{% if messages %}
+		{% for message in messages %}
+		<div class="notification {{ message.tags}}">
+			{{ message }}
+		</div>   
+		{% endfor %}
+	{% endif %}  
 <div id="contenedor_inicio">    
     <div>
     </div>
