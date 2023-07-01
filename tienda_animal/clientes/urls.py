@@ -1,12 +1,14 @@
-from django.urls import path
+from django.urls import path,include
 from . import views
+from productos.views import tiendaHTML
 
 urlpatterns = [
     path('',views.indexHtml, name='index'),
     path('contacto',views.contactoHTML, name='contacto'),
-    path('donaciones',views.donacionesHTML, name='contacto'),
-    path('login',views.loginHTML, name='contacto'),
-    path('nosotros',views.nosotrosHTML, name='contacto'),
-    path('registro',views.registroHTML, name='registro'),
-    # path('clientes_add', views.addCliente,name='clientesAdd'),
+    path('donaciones',views.donacionesHTML, name='donaciones'),
+    path('login',views.loginHTML, name='login'),
+    path('nosotros',views.nosotrosHTML, name='nosotros'),
+    path('registro', views.registroHTML, name ='registro'),
+    path('registro', views.registroHTML, name ='registro'),
+    path('tienda',tiendaHTML,name='tienda'),
 ]
