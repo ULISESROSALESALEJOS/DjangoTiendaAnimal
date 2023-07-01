@@ -25,5 +25,5 @@ class UserRegisterForm(UserCreationForm):
 
 class LoginForm(AuthenticationForm):
 		username = forms.CharField(label="Usuario")
-		passwword = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
+		password = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
 
