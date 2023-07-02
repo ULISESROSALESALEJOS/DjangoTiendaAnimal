@@ -1,18 +1,24 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'js/cargasHTML.js' %}"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarme</title>
 </head>
+<style>
+    body {
+        font-family: 'Roboto Condensed', sans-serif;
+        background-color: #f5f1ee;
+        color: black;
+    }
+</style>
 <body>
 <header>
     <div id="primera-barra" class="container-fluid ">
@@ -40,7 +46,7 @@
                                 </li>
                                 <a class="nav-link" href="" style="height: 20px; padding-left:0;">{{ user.username }}</a>
                             {% else %}
-                                <a href="{% url 'login' %}">login</a>
+                                <a href="{% url 'login' %}" class="nav-link">login</a>
                             {% endif %}
                         </a>
                     </li>
@@ -56,8 +62,8 @@
     </div>
     <div id="navegador" class="navbar navbar-expand-sm  justify-content-center">
         <div class="container-fluid">
-            <button onclick="cargarHTML('')" class="nav-link" >
-                <a href="{% url 'index' %}">
+            <button onclick="cargarHTML('index')" class="nav-link" >
+                <a>
                     <img src="static/img/petslife-logo.svg" alt="pagina Logo1">
                 </a>
             </button>
@@ -68,17 +74,11 @@
             <div class="collapse navbar-collapse justify-content-start" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" >Inicio</a></button>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Comida</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Perro</a></li>
-                            <li><a class="dropdown-item" href="#">Gato</a></li>
-                        </ul>
+                        <button onclick="cargarHTML('index')" class="nav-link"><a>Inicio</a></button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" >Tienda</a></button>
+                        {% comment %} <button onclick="cargarHTML('tienda')" class="nav-link"> {% endcomment %}
+                        <a href="{% url 'tienda' %}" class="nav-link">Tienda</a>
                     </li>
                     <li class="nav-item">
                         <button onclick="cargarHTML('contacto')" class="nav-link"><a>Contacto</a></button>

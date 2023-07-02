@@ -46,7 +46,6 @@ def loginHTML(request):
                 login(request, user)
                 return redirect('index')
             else:
-                print("Nones")
                 pass
     else:
         formLogin = LoginForm(request)
