@@ -27,3 +27,4 @@ class LoginForm(AuthenticationForm):
 		username = forms.CharField(label="Usuario")
 		password = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
 
+

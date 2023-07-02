@@ -31,3 +31,6 @@ class Cliente(models.Model):
         telefono    = models.TextField()
         ciudad      = models.CharField(max_length=50)
         residencia  = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
