@@ -4,6 +4,7 @@ from .models import Cliente,Genero
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -21,6 +22,7 @@ def nosotrosHTML(request):
     return render(request,'nosotros.html')
 
 def registroHTML(request):
+<<<<<<< HEAD
     if request.method == 'POST':
         form = ClienteAdd(request.POST)
         formUser = UserRegisterForm(request.POST)
@@ -37,6 +39,21 @@ def registroHTML(request):
 
     context = { 'form': form, 'formUser': formUser }
     return render(request, 'registro.html', context)
+=======
+            if request.method == 'POST':
+                form = ClienteAdd(request.POST)
+                formUser = UserRegisterForm(request.POST)
+                if form.is_valid() and formUser.is_valid():
+                    form.save()
+                    formUser.save()
+                    return redirect('index')
+            else:
+                form = ClienteAdd()
+                formUser = UserRegisterForm()
+            
+            context = { 'form' : form,'formUser' : formUser}
+            return render(request, 'registro.html', context)
+>>>>>>> 2ab8ae821a1a72e9b242536b478a782aba083b8b
 
 def loginHTML(request):
     if request.method == 'POST':
