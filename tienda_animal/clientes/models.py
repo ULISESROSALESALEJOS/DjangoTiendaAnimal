@@ -24,4 +24,10 @@ class Cliente(models.Model):
     class Meta:
         ordering = ['rut']
 
-    
+    class Contacto(models.Model):
+        correo      = models.EmailField()
+        nombre      = models.CharField(max_length=50)
+        apellido    = models.CharField(max_length=50)
+        telefono    = models.TextField()
+        ciudad      = models.CharField(max_length=50)
+        residencia  = models.CharField(max_length=50)
