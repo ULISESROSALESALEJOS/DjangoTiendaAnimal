@@ -21,19 +21,19 @@ def nosotrosHTML(request):
     return render(request,'nosotros.html')
 
 def registroHTML(request):
-		if request.method == 'POST':
-			form = ClienteAdd(request.POST)
-			formUser = UserRegisterForm(request.POST)
-			if form.is_valid() and formUser.is_valid():
-				form.save()
-				formUser.save()
-				return redirect('index')
-		else:
-			form = ClienteAdd()
-			formUser = UserRegisterForm()
-		
-		context = { 'form' : form,'formUser' : formUser}
-		return render(request, 'registro.html', context)
+            if request.method == 'POST':
+                form = ClienteAdd(request.POST)
+                formUser = UserRegisterForm(request.POST)
+                if form.is_valid() and formUser.is_valid():
+                    form.save()
+                    formUser.save()
+                    return redirect('index')
+            else:
+                form = ClienteAdd()
+                formUser = UserRegisterForm()
+            
+            context = { 'form' : form,'formUser' : formUser}
+            return render(request, 'registro.html', context)
 
 def loginHTML(request):
     if request.method == 'POST':
