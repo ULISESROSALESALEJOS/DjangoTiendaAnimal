@@ -62,8 +62,8 @@
     </div>
     <div id="navegador" class="navbar navbar-expand-sm  justify-content-center">
         <div class="container-fluid">
-            <button onclick="cargarHTML('index')" class="nav-link" >
-                <a>
+            <button onclick="cargarHTML('')" class="nav-link" >
+                <a href="{% url 'index' %}">
                     <img src="static/img/petslife-logo.svg" alt="pagina Logo1">
                 </a>
             </button>
@@ -98,18 +98,100 @@
         </div>
     </div>
 </header>
-<div id="contenedor_inicio">  
+<div id="contenedor_inicio" class="d-flex justify-content-center align-items-center">
+    <div class="formulario-container">
     <br>
-    <form action="" method="POST">
+        <form action="" method="POST" class="w-100">
         {% csrf_token %}
+            
+            <div class="row">
+                <div class="col-md-4">
         <h2>Datos Usuario</h2>
-        {{formUser.as_p}}
+                    <div class="form-group mb-4">
+                        <label for="{{ formUser.username.id_for_label }}">Username:</label>
+                        <div class="text-center">
+                            {{ formUser.username }}
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="{{ formUser.email.id_for_label }}">Email:</label>
+                        <div class="text-center">
+                            {{ formUser.email }}
+                        </div>             
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="{{ formUser.password1.id_for_label }}">Contraseña:</label>
+                        <div class="text-center">
+                            {{ formUser.password1 }}
+                        </div>                    
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="{{ formUser.password2.id_for_label }}">Confirma Contraseña:</label>
+                        <div class="text-center">
+                            {{ formUser.password2 }}
+                        </div>           
+                    </div>
+                </div>
+                <div class="col-md-4">
         <h2>Datos Personales</h2>
-        {{form.as_p}}
-        <input type="submit" value="Guardar">
+                    <div class="form-group mb-4">
+                        <label for="{{ form.rut.id_for_label }}">Rut:</label>
+                        <div class="text-center">
+                            {{ form.rut }}
+                        </div>    
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="{{ form.nombre.id_for_label }}">Nombre:</label>
+                        <div class="text-center">
+                            {{ form.nombre }}
+                        </div>  
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="{{ form.apellido_paterno.id_for_label }}">Apellido paterno:</label>
+                        <div class="text-center">
+                            {{ form.apellido_paterno }}
+                        </div>                 
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="{{ form.apellido_materno.id_for_label }}">Apellido materno:</label>
+                        <div class="text-center">
+                            {{ form.apellido_materno }}
+                        </div>              
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="{{ form.fecha_nacimiento.id_for_label }}">Fecha de nacimiento:</label>
+                        <div class="text-center">
+                            {{ form.fecha_nacimiento }}
+                            <small>Formato: dd-mm-aaaa</small>
+                        </div>      
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h2>Información adicional</h2>
+                    <div class="form-group mb-4">
+                        <label for="{{ form.id_genero.id_for_label }}">Id genero:</label>
+                        <div class="text-center">
+                            {{ form.id_genero }} 
+                        </div>                     
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="{{ form.telefono.id_for_label }}">Teléfono:</label>
+                    <div class="text-center">
+                        {{ form.telefono }}
+                    </div>       
+            </div>
+            <div class="form-group mb-4">
+                <label for="{{ form.direccion.id_for_label }}">Dirección:</label>
+            <div class="text-center">
+                {{ form.telefono }}
+                </div>
+                </div>
+                </div>
+                </div>
+            
+            <input type="submit" class="btn btn-primary mx-auto d-block" value="Guardar">
     </form>
 </div>
-<div id="contenido">
 </div>
 
 <footer class=" footer">
