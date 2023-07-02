@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .forms import UserRegisterForm,ClienteAdd,LoginForm
 from .models import Cliente,Genero
 from django.contrib.auth.models import User
-from django.contrib import messages
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
 

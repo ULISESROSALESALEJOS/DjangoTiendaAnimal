@@ -60,7 +60,12 @@
                             <a href="{% url 'registro' %}" class="nav-link">Registrarme</a></button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="#">Ayuda</a>
+                            {% if user.is_authenticated %}
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'adm_prod' %}" style="height: 20px; padding-left:0;">Administrar</a>
+                                    </li>
+                                {% else %}
+                                {% endif %}
                         </li>
                     </ul>
                 </div>
