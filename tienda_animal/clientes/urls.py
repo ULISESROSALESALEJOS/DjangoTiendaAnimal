@@ -1,6 +1,7 @@
 from django.urls import path,include
 from . import views
-from productos.views import tiendaHTML
+from django.shortcuts import redirect
+from productos.views import tiendaHTML,adm_productos
 
 urlpatterns = [
     path('index',views.indexHtml, name='index'),
@@ -10,4 +11,6 @@ urlpatterns = [
     path('nosotros',views.nosotrosHTML, name='nosotros'),
     path('registro', views.registroHTML, name ='registro'),
     path('tienda',tiendaHTML,name='tienda'),
+    path('adm_prod',adm_productos,name='adm_prod'),
+
 ]

@@ -28,8 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 
 # Application definition
 
@@ -59,6 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+LOGIN_URL = 'login'
 ROOT_URLCONF = 'tienda_animal.urls'
 
 TEMPLATES = [
@@ -77,13 +76,6 @@ TEMPLATES = [
         },
     },
 ]
-
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, '../static/'),
-# 
-
-
-
 
 WSGI_APPLICATION = 'tienda_animal.wsgi.application'
 
