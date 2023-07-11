@@ -54,15 +54,21 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'registro' %}" class="nav-link">Registrarme</a></button>
+                            <a href="{% url 'registro' %}" class="nav-link" style="height: 20px; padding-left:0;">Registrarme</a></button>
                         </li>
                         <li class="nav-item">
                             {% if user.is_authenticated %}
+                                {% if user_admin %}
                                     <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'adm_prod' %}" style="height: 20px; padding-left:0;">Administrar</a>
+                                        <a class="nav-link" href="{% url 'mantenedor' %}" style="height: 20px; padding-left:0;">Mantenedor</a>
                                     </li>
                                 {% else %}
                                 {% endif %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'logout' %}" style="height: 20px; padding-left:0;">Cerrar Sesion</a>
+                                    </li>
+                            {% else %}
+                            {% endif %}
                         </li>
                     </ul>
                 </div>
@@ -99,7 +105,7 @@
                         </li>
                     </ul>
                 </div>
-                <form class="d-flex">
+                <form style="padding-left: 5rem;" class="d-flex">
                     <input class="form-control me-2" type="text" placeholder=" ">
                     <button class="btn btn-secondary" type="button">Buscar</button>
                 </form>

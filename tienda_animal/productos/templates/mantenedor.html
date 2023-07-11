@@ -4,15 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styleAdmProd.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleMantenedor.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="{% static 'js/cargasHTML.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <title>Document</title>
+    <title>Panel Administracion</title>
 </head>
+<style>
+    body {
+        font-family: 'Roboto Condensed', sans-serif;
+        background-color: #f5f1ee;
+        color: black;
+    }
+</style>
 <body>
     <header>
         <div id="primera-barra" class="container-fluid ">
@@ -31,7 +38,6 @@
                 <div class="col-sm-4">
                     <ul class="nav">
                         <li class="nav-item">
-                            {% comment %} <button onclick="cargarHTML('login')" class="nav-link"> {% endcomment %}
                             <a href="#">
                                 {% if user.is_authenticated %}
                                     <li class="nav-item">
@@ -45,10 +51,21 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'registro' %}" class="nav-link">Registrarme</a></button>
+                            <a href="{% url 'registro' %}" class="nav-link" style="height: 20px; padding-left:0;">Registrarme</a></button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="#">Ayuda</a>
+                            {% if user.is_authenticated %}
+                                {% if user_admin %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'mantenedor' %}" style="height: 20px; padding-left:0;">Mantenedor</a>
+                                    </li>
+                                {% else %}
+                                {% endif %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'logout' %}" style="height: 20px; padding-left:0;">Cerrar Sesion</a>
+                                    </li>
+                            {% else %}
+                            {% endif %}
                         </li>
                     </ul>
                 </div>
@@ -85,50 +102,53 @@
                         </li>
                     </ul>
                 </div>
-                <form class="d-flex">
+                <form style="padding-left: 5rem;" class="d-flex">
                     <input class="form-control me-2" type="text" placeholder=" ">
                     <button class="btn btn-secondary" type="button">Buscar</button>
                 </form>
             </div>
         </div>
     </header>
-    <div id="contenedor_inicio">
-        <div class="form_add">
-            <h1>Agregar Productos</h1>
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{formProd.as_p}}
-                <button type="submit">Agregar</button>
-            </form>
-        </div>
-        <div class="list_prod">
-            <h1>Listado Productos</h1>
-            
-                <table>
-                    <tr>
-                        <th>Id Producto</th>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Descripcion</th>
-                        <th>Accion</th>
-                    </tr>
-                    <br>
-                    {% for producto in productos %}    
-                        <tr>
-                            <td>{{producto.id_producto}}</td>
-                            <td>{{producto.nombre}}</td>
-                            <td>{{producto.precio}}</td>
-                            <td>{{producto.stock}}</td>
-                            <td>{{producto.descripcion}}</td>
-                            <td><button><a href="{% url 'eliminar_producto' producto.id_producto %}">Eliminar</a></button><button>Editar</button></td>
-                        </tr>
-                    {% endfor%}
-                </table>
-                <br>
-            
-        </div>
+<div id="contenedor_inicio">
+    <div class="form_add">
+        <h1>Agregar Productos</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{formProd.as_p}}
+            <button type="submit">Agregar</button>
+        </form>
     </div>
+    <div class="list_prod">
+        <h1>Listado Productos</h1>
+        
+            <table>
+                <tr>
+                    <th>Id Producto</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Descripcion</th>
+                    <th>Accion</th>
+                </tr>
+                <br>
+                {% for producto in productos %}    
+                    <tr>
+                        <td>{{producto.id_producto}}</td>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{producto.stock}}</td>
+                        <td>{{producto.descripcion}}</td>
+                        <td><button><a href="{% url 'eliminar_producto' producto.id_producto %}">Eliminar</a></button><button><a href="{% url 'editar_Producto' producto.id_producto %}">Editar</a></button></td>
+                    </tr>
+                {% endfor%}
+            </table>
+            <br>
+    </div>
+</div>
+
+<div id="contenido">
+
+</div>
     <footer class=" footer">
         <div class="container p-4">
             <div class="row my-4">

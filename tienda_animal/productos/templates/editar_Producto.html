@@ -1,37 +1,43 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleMantenedor.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="{% static 'js/cargasHTML.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styleInicio.css' %}">
-    <title>Login</title>
+    <title>Editar Producto</title>
 </head>
+<style>
+    body {
+        font-family: 'Roboto Condensed', sans-serif;
+        background-color: #f5f1ee;
+        color: black;
+    }
+</style>
 <body>
     <header>
         <div id="primera-barra" class="container-fluid ">
             <div class="row">
                 <div class="col-sm-8">
                     <img src="{% static 'img/brit.png' %}" alt="brit">
-                    <img src="static/img/acana1.png" alt="acana">
-                    <img src="static/img/granplus1.png" alt="granplus">
-                    <img src="static/img/biljac.png" alt="biljac">
-                    <img src="static/img/royalcanin.png" alt="royalcanin">
-                    <img src="static/img/nutragold.png">
-                    <img src="static/img/biofresh.png" alt="biofresh">
-                    <img src="static/img/vetlife.jpg" alt="vetlife">
-                    <img src="static/img/logo-hill.svg" alt="hill's">
+                    <img src="{% static 'img/acana1.png' %}" alt="acana">
+                    <img src="{% static 'img/granplus1.png' %}" alt="granplus">
+                    <img src="{% static 'img/biljac.png' %}" alt="biljac">
+                    <img src="{% static 'img/royalcanin.png' %}" alt="royalcanin">
+                    <img src="{% static 'img/nutragold.png' %}">
+                    <img src="{% static 'img/biofresh.png' %}" alt="biofresh">
+                    <img src="{% static 'img/vetlife.jpg' %}" alt="vetlife">
+                    <img src="{% static 'img/logo-hill.svg' %}" alt="hill's">
                 </div>
                 <div class="col-sm-4">
                     <ul class="nav">
                         <li class="nav-item">
-                            {% comment %} <button onclick="cargarHTML('login')" class="nav-link"> {% endcomment %}
                             <a href="#">
                                 {% if user.is_authenticated %}
                                     <li class="nav-item">
@@ -49,11 +55,17 @@
                         </li>
                         <li class="nav-item">
                             {% if user.is_authenticated %}
+                                {% if user_admin %}
                                     <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'mantenedor' %}" style="height: 20px; padding-left:0;">Mantenedor</a>
+                                        <a class="nav-link" href="{% url 'mantenedor' %}" style="height: 20px; padding-left:0;">Mantenedor</a>
                                     </li>
                                 {% else %}
                                 {% endif %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'logout' %}" style="height: 20px; padding-left:0;">Cerrar Sesion</a>
+                                    </li>
+                            {% else %}
+                            {% endif %}
                         </li>
                     </ul>
                 </div>
@@ -63,7 +75,7 @@
             <div class="container-fluid">
                 <button onclick="cargarHTML('index')" class="nav-link" >
                     <a>
-                        <img src="static/img/petslife-logo.svg" alt="pagina Logo1">
+                        <img src="{% static 'img/petslife-logo.svg' %}" alt="pagina Logo1">
                     </a>
                 </button>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -97,17 +109,16 @@
             </div>
         </div>
     </header>
-    <br>
-    <div id="contenedor_inicio">
-        <h2>Iniciar Sesión</h2>
-        <form id="form_login" action="" method="POST">
-            {% csrf_token %}
-            {{form}}
-            <a href="{% url 'registro' %}">Registrarme</a>
-            <button type="submit">Ingresar</button>
-        </form>
-    <br>
-    </div>
+
+<form style="padding: 30px;" method="POST" class="formulario">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button id="btn_save" style="margin-right: 2rem; background-color: #00FF00; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; color: #FFFFFF;" type="submit">Guardar</button><button style="background-color: #FF0000; padding: 10px 20px; border: none; border-radius: 5px;font-size: 16px;"><a style="text-decoration: none; color: #FFFFFF;" id="btn_exit" href="{% url 'mantenedor' %}">Cancelar</a></button>
+</form>
+
+<div id="contenido">
+
+</div>
     <footer class=" footer">
         <div class="container p-4">
             <div class="row my-4">
@@ -115,7 +126,7 @@
     
                     <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto"
                         style="width: 150px; height: 150px;">
-                        <img src="static/img/PetsLife1.png" height="150" alt="logo"
+                        <img src="{% static 'img/PetsLife1.png' %}" height="150" alt="logo"
                             loading="lazy"/>
                     </div>
     

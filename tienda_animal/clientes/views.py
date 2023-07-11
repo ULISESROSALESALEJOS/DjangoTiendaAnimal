@@ -9,7 +9,8 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def indexHtml(request):
-    return render(request,'index.html')
+    user_admin = request.user.is_superuser
+    return render(request,'index.html',{'user_admin':user_admin})
 
 def contactoHTML(request):
     return render(request,'contacto.html')
@@ -21,24 +22,21 @@ def nosotrosHTML(request):
     return render(request,'nosotros.html')
 
 def registroHTML(request):
-
     if request.method == 'POST':
         form = ClienteAdd(request.POST)
         formUser = UserRegisterForm(request.POST)
         if form.is_valid() and formUser.is_valid():
             form.save()
             formUser.save()
-            
-            messages.success(request, '¡Registro exitoso!')
-
             return redirect('index')
     else:
         form = ClienteAdd()
         formUser = UserRegisterForm()
 
-        context = { 'form': form, 'formUser': formUser }
+        user_admin = request.user.is_superuser
+        
+        context = { 'form': form, 'formUser': formUser, 'user_admin':user_admin}
         return render(request, 'registro.html', context)
-
 
 
 def loginHTML(request):

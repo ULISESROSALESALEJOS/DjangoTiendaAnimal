@@ -1,0 +1,16 @@
+#contenedor_inicio{
+    display: flex;
+    gap: 5rem;
+}
+
+
+.formulario #btn_save{
+    background-color: #00FF00;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    padding-right: 30px;
+}
