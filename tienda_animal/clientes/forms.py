@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Cliente,Genero
+from .models import Cliente
 from django.forms import ModelForm,TextInput
 
 class ClienteAdd(ModelForm):
@@ -24,6 +24,5 @@ class UserRegisterForm(UserCreationForm):
 		help_texts = {k:"" for k in fields }
 
 class LoginForm(AuthenticationForm):
-		username = forms.CharField(label="Usuario")
-		passwword = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
-
+    username = forms.CharField(label="Usuario")
+    password = forms.CharField(label="Contraseña", widget=forms.PasswordInput)

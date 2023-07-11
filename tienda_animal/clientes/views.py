@@ -49,13 +49,12 @@ def loginHTML(request):
                 login(request, user)
                 return redirect('index')
             else:
-                print("Nones")
+                print("None")
                 pass
     else:
         formLogin = LoginForm(request)
-    
-    context = {'form' : formLogin}
-    return render(request, 'login.html', context)
+        context = {'form': formLogin}
+        return render(request, 'login.html', context)
 
 
 

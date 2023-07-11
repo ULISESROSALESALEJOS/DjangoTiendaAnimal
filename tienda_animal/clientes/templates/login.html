@@ -1,17 +1,27 @@
+
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
     <title>Document</title>
 </head>
 <body>
     <h2>Log In</h2>
     <form action="" method="post">
         {% csrf_token %}
-        {{form}}
-        <button type="submit">Log In</button>
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Usuario:</label>
+            {{ form.username|add_class:"my-input-class" }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}">Contraseña:</label>
+            {{ form.password|add_class:"my-input-class" }}
+        </div>
+        <button type="submit" class="my-button-class">Log In</button>
     </form>
 </body>
 </html>
