@@ -110,7 +110,7 @@
         </div>
     </header>
 <div id="contenedor_inicio">
-    <div class="form_add">
+    <div style="padding-left: 3rem;" class="form_add">
         <h1>Agregar Productos</h1>
         <form action="" method="POST">
             {% csrf_token %}
@@ -138,7 +138,7 @@
                         <td>{{producto.precio}}</td>
                         <td>{{producto.stock}}</td>
                         <td>{{producto.descripcion}}</td>
-                        <td><button><a href="{% url 'eliminar_producto' producto.id_producto %}">Eliminar</a></button><button><a href="{% url 'editar_Producto' producto.id_producto %}">Editar</a></button></td>
+                        <td><button><a style="text-decoration: none;" href="{% url 'eliminar_producto' producto.id_producto %}">Eliminar</a></button><button><a style="text-decoration: none;" href="{% url 'editar_Producto' producto.id_producto %}">Editar</a></button></td>
                     </tr>
                 {% endfor%}
             </table>

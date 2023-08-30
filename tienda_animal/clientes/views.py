@@ -34,7 +34,6 @@ def registroHTML(request):
         formUser = UserRegisterForm()
 
         user_admin = request.user.is_superuser
-        
         context = { 'form': form, 'formUser': formUser, 'user_admin':user_admin}
         return render(request, 'registro.html', context)
 

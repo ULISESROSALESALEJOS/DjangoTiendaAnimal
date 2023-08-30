@@ -110,7 +110,14 @@
         </div>
     </div>
 </header>
-<div id="contenedor_inicio" class="d-flex justify-content-center align-items-center">
+<form style="padding: 30px;" method="POST" class="formulario">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ formUser.as_p }}
+    <button id="btn_save" style="margin-right: 2rem; background-color: #00FF00; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; color: #FFFFFF;" type="submit">Guardar</button><button style="background-color: #FF0000; padding: 10px 20px; border: none; border-radius: 5px;font-size: 16px;"><a style="text-decoration: none; color: #FFFFFF;" id="btn_exit" href="{% url 'mantenedor' %}">Cancelar</a></button>
+</form>
+
+{% comment %} <div id="contenedor_inicio" class="d-flex justify-content-center align-items-center">
     <div class="formulario-container">
         <br>
         <form action="" method="POST" class="w-100">
@@ -204,7 +211,7 @@
             <input type="submit" class="btn btn-primary mx-auto d-block" value="Guardar">
         </form>
     </div>    
-</div>
+</div> {% endcomment %}
 <div id="contenido">
 
 </div>
